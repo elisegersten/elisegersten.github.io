@@ -12,7 +12,7 @@ function randomValueFromArray(array){
 
 //NUMBER2
 
-const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+const storyText = "It was 94 fahrenheit outside, so :insertX: went for a walk. When they got to :insertY:, they stared in horror for a few moments, then :insertZ:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
 
 const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
 
@@ -27,17 +27,15 @@ randomize.addEventListener('click', result);
 
 function result() {
 
-  console.log('Button clicked');
-
     const newStory= storyText;
 
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
 
-    newStory = newStory.replace(':insertx:', xItem);
-    newStory = newStory.replace(':inserty:', yItem);
-    newStory = newStory.replace(':insertz:', zItem);
+    newStory = newStory.replace(':insertX:', xItem);
+    newStory = newStory.replace(':insertY:', yItem);
+    newStory = newStory.replace(':insertZ:', zItem);
 
   if(customName.value !== '') {
     const name = customName.value;
