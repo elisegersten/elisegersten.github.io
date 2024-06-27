@@ -27,6 +27,8 @@ randomize.addEventListener('click', result);
 
 function result() {
 
+  console.log('Button clicked');
+
     const newStory= storyText;
 
     const xItem = randomValueFromArray(insertX);
