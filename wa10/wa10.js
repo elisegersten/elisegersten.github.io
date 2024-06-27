@@ -12,9 +12,9 @@ function randomValueFromArray(array){
 
 //NUMBER2
 
-const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :insertY:, they stared in horror for a few moments, then :insertZ:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+const storyText = "It was 94 fahrenheit outside, so :insertX: went for a walk. When they got to :insertY:, they stared in horror for a few moments, then :insertZ:. Bob saw the whole thing, but was not surprised — :insertX: weighs 300 pounds, and it was a hot day.";
 
-const insertx = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
 
 const insertY = ["the soup kitchen", "Disneyland", "the White House"];
 
@@ -29,11 +29,11 @@ function result() {
 
     let newStory= storyText;
 
-    let xItem = randomValueFromArray(insertx);
+    let xItem = randomValueFromArray(insertX);
     let yItem = randomValueFromArray(insertY);
     let zItem = randomValueFromArray(insertZ);
 
-    newStory = newStory.replace(':insertx:', xItem);
+    newStory = newStory.replace(':insertX:', xItem);
     newStory = newStory.replace(':insertY:', yItem);
     newStory = newStory.replace(':insertZ:', zItem);
 
