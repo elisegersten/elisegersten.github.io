@@ -10,7 +10,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        width: 200px;
+        width: 242px;
         background: #eee;
       }
 
@@ -18,6 +18,9 @@
         line-height: 1.5;
         padding: 10px 20px;
         color: #333;
+        padding-left: 82px;
+        background-position: 25px center;
+        background-repeat: no-repeat;
       }
 
       .msgBox button {
@@ -40,34 +43,39 @@
       </div>
 
     <script>
-    alert("This is a message");
+  
+  const btn = document.querySelector('button');
+      btn.addEventListener('click', () => displayMessage('Brian: Hi there, how are you today?', 'chat'));
 
-    const btn = document.querySelector("button");
-    btn.addEventListener("click", () =>
-  displayMessage("Woo, this is a different message!"),
-);
+      function displayMessage(msgText,msgType) {
+        const html = document.querySelector('html');
 
-    function displayMessage(msgText, msgType) {
+        const panel = document.createElement('div');
+        panel.setAttribute('class','msgBox');
+        html.appendChild(panel);
 
-    const body = document.body;
+        const msg = document.createElement('p');
+        msg.textContent = msgText;
+        panel.appendChild(msg);
 
-    const panel = document.createElement("div");
-    panel.setAttribute("class", "msgBox");
-    body.appendChild(panel);
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = 'x';
+        panel.appendChild(closeBtn);
 
-    const msg = document.createElement("p");
-    msg.textContent = msgText;
-    panel.appendChild(msg);
+        closeBtn.onclick = function() {
+          panel.parentNode.removeChild(panel);
+        }
 
-    const closeBtn = document.createElement("button");
-    closeBtn.textContent = "x";
-    panel.appendChild(closeBtn);
-
-    closeBtn.addEventListener("click", () =>
-    panel.parentNode.removeChild(panel),
-    );
-    displayMessage();
-}
+        if(msgType === 'warning') {
+          msg.style.backgroundImage = 'url(../img/warning.png)';
+          panel.style.backgroundColor = 'red';
+        } else if(msgType === 'chat') {
+          msg.style.backgroundImage = 'url(../img/chat.png)';
+          panel.style.backgroundColor = 'aqua';
+        } else {
+          msg.style.paddingLeft = '20px';
+        }
+      }
     </script>
   </body>
 </html>
