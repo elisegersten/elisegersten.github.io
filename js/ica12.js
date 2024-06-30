@@ -1,4 +1,4 @@
-const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion'
+const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
 
 
 const newQuote = document.querySelecter('#js-new-quote');
@@ -20,6 +20,7 @@ async function getTrivia() {
         //console.log(json)
         displayTrivia(json['question']);
         answer = json['answer'];
+        answerTxt.textContent = '';
     }
     catch(err) {
         console. log(err)
