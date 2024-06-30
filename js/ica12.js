@@ -1,7 +1,7 @@
 const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
 
 
-const newQuote = document.querySelecter('#js-new-quote');
+const newQuote = document.querySelector('#js-new-quote');
 newQuote.addEventListener('click', getTrivia);
 
 const answerBtn = document.querySelector('#js-tweet').addEventListener('click', displayAnswer);
