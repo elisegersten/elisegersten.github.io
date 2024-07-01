@@ -1,4 +1,4 @@
-const endpoint = 'https://quizapi.io/api/v1/questions?apiKey=YOUR_API_KEY&difficulty=Easy&limit=20';
+const endpoint = 'https://opentdb.com/api.php?amount=10';
 
 
 const newQuote = document.querySelector('#js-new-quote');
