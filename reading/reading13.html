@@ -43,29 +43,27 @@
       let male = 0;
 
       // Add your code here
-      let data = JSON.parse(catString);
-
       for (let i = 0; i < data.length; i++) {
-          motherInfo += data[i].name;
-          if (i < data.length - 2) {
-          motherInfo += ', ';
-        } else if (i == data.length - 2) {
-          motherInfo += ' and ';
-        } else {
-          motherInfo += '.';
-        }
+        motherInfo += data[i].name;
+        if (i < data.length - 2) {
+        motherInfo += ', ';
+    } else if (i === data.length - 2) {
+        motherInfo += ' and ';
+    } else {
+        motherInfo += '.';
+    }
 
-        for (let j = 0; j < data[i].kittens.length; j++) {
-          total++;
-          if (data[i].kittens[j].gender === 'm') {
-            male++;
-          } else if (data[i].kittens[j].gender === 'f') {
-            female++;
-          }
-        }
+      for (let j = 0; j < data[i].kittens.length; j++) {
+        total++;
+      if (data[i].kittens[j].gender === 'm') {
+        male++;
+      } else if (data[i].kittens[j].gender === 'f') {
+        female++;
       }
+    }
+  }
 
-kittenInfo += `${total} kittens. ${male} are male, and ${female} are female.`;
+  kittenInfo = `They have a total of ${total} kittens. ${male} are male, and ${female} are female.`;
 
       // Don't edit the code below here!
 
