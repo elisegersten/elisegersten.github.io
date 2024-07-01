@@ -1,4 +1,4 @@
-const endpoint = 'https://opentdb.com/api.php?amount=10';
+const endpoint = 'https://opentdb.com/api.php?amount=1';
 
 
 const newQuote = document.querySelector('#js-new-quote');
