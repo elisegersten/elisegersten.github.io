@@ -35,8 +35,8 @@
     const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json';
 
     fetch(requestURL)
-    .then(response => response.text())
-    .then(text => displayCatInfo(text))
+    .then(response => response.json())
+    .then(data => displayCatInfo(data));
 
     function displayCatInfo(catString) {
       let total = 0;
