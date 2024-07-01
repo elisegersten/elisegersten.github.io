@@ -1,4 +1,4 @@
-const endpoint = 'https://the-trivia-api.com/v2/questions';
+const endpoint = 'https://opentdb.com/api.php?amount=30&type=multiple';
 
 
 const newQuote = document.querySelector('#js-new-quote');
