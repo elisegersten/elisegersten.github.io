@@ -1,4 +1,4 @@
-const endpoint = 'https://the-trivia-api.com/v2/questions';
+const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
 
 
 const newQuote = document.querySelector('#js-new-quote');
