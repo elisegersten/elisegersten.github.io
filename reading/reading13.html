@@ -19,8 +19,10 @@
   <body>
 
     <section class="preview">
-
-
+    
+      <div id="catContainer">
+        
+      </div>
 
     </section>
 
@@ -43,25 +45,25 @@
       let male = 0;
 
       // Add your code here
-      for (let i = 0; i < data.length; i++) {
-        motherInfo += data[i].name;
-        if (i < data.length - 2) {
-        motherInfo += ', ';
-    } else if (i === data.length - 2) {
-        motherInfo += ' and ';
-    } else {
-        motherInfo += '.';
-    }
+      fetch('cats.json')
+      .then(response => response.json())
+      .then(data => {
+    const catContainer = document.getElementById('catContainer');
+    
+    catContainer.innerHTML = '';
 
-      for (let j = 0; j < data[i].kittens.length; j++) {
-        total++;
-      if (data[i].kittens[j].gender === 'm') {
-        male++;
-      } else if (data[i].kittens[j].gender === 'f') {
-        female++;
-      }
-    }
-  }
+    data.forEach(cat => {
+      const catElement = document.createElement('div');
+      catElement.innerHTML = `
+        <h2>${cat.name}</h2>
+        <p>Breed: ${cat.breed}</p>
+        <p>Age: ${cat.age}</p>
+        <p>Description: ${cat.description}</p>
+      `;
+      catContainer.appendChild(catElement);
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
 
   kittenInfo = `They have a total of ${total} kittens. ${male} are male, and ${female} are female.`;
 
