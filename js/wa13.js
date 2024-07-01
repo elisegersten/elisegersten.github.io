@@ -23,7 +23,7 @@ console.log('Problen 2:', company);
 let newEmployee = {firstName: 'Anna', department: 'Tech', designation: 'Executive', salary: 25600, raiseEligible: false};
 company.employees.push(newEmployee);
 
-console.log('Problem 3:', deepCopy(company));
+console.log('Problem 3:', company);
 
 //Problem 4
 
@@ -43,7 +43,7 @@ function giveRaiseAndSetEligibilityFalse(company) {
 }
 
 giveRaiseAndSetEligibilityFalse(company);
-console.log('Problem 5:', deepCopy(company));
+console.log('Problem 5:', company);
 
 //Problem 6
 
@@ -56,4 +56,4 @@ function updateWorkFromHomeStatus(company, wfhList) {
 }
 
 updateWorkFromHomeStatus(company, workFromHome);
-console.log('Problem 6:', deepCopy(company));
+console.log('Problem 6:', company);
