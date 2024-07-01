@@ -23,8 +23,8 @@ async function getTrivia() {
         }
         const json = await response.json();
         //console.log(json)
-        displayTrivia(json[0].question); // Updated this line to match the correct structure of the JSON response
-        answer = json[0].correctAnswer;
+        displayTrivia(json['question']);
+        answer = json['answer'];
         answerTxt.textContent = '';
     }
     catch(err) {
