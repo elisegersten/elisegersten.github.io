@@ -10,6 +10,7 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+let phoneNumberInput = null;
 
 class Ball {
   constructor(x, y, velX, velY, number, size) {
