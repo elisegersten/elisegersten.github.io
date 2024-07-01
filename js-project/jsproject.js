@@ -15,8 +15,8 @@ class Ball {
   constructor(x, y, velX, velY, number, size) {
     this.x = x;
     this.y = y;
-    this.velX = 1;
-    this.velY = -1;
+    this.velX = velX;
+    this.velY = velY;
     this.number = number;
     this.size = size;
 
