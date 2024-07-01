@@ -6,7 +6,7 @@ let employees = [
     {firstName: 'Bill', department: 'HR', designation: 'Executive', salary: 21200, raiseEligible: false}
 ];
 
-console.log('Problem 1: Employees', JSON.stringify(employees));
+console.log('Problem 1:', employees);
 
 //Problem 2
 
@@ -16,15 +16,14 @@ let company = {
     employees: employees
 };
 
-console.log('Problem 2: Company', JSON.stringify(company));
+console.log('Problen 2:', company);
 
 //Problem 3
 
 let newEmployee = {firstName: 'Anna', department: 'Tech', designation: 'Executive', salary: 25600, raiseEligible: false};
 company.employees.push(newEmployee);
 
-console.log('Problem 3: Added new employee Anna');
-console.log('Updated Company:', JSON.stringify(company));
+console.log('Problem 3:', company);
 
 //Problem 4
 
@@ -44,7 +43,7 @@ function giveRaiseAndSetEligibilityFalse(company) {
 }
 
 giveRaiseAndSetEligibilityFalse(company);
-console.log('Problem 5: Updated Company with raises', JSON.stringify(company));
+console.log('Problem 5:', company);
 
 //Problem 6
 
@@ -57,4 +56,4 @@ function updateWorkFromHomeStatus(company, wfhList) {
 }
 
 updateWorkFromHomeStatus(company, workFromHome);
-console.log('Problem 6: Updated Company with WFH status', JSON.stringify(company));
+console.log('Problem 6:', company);
