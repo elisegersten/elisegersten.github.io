@@ -15,8 +15,8 @@ class Ball {
   constructor(x, y, velX, velY, number, size) {
     this.x = x;
     this.y = y;
-    this.velX = velX;
-    this.velY = velY;
+    this.velX = 1;
+    this.velY = -1;
     this.number = number;
     this.size = size;
 
@@ -30,7 +30,7 @@ class Ball {
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
-    ctx.fillStyle = 'black'; // Set text color to black
+    ctx.fillStyle = 'black';
     ctx.font = `${this.size}px Arial`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -75,19 +75,23 @@ class Ball {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
-
     const dx = mouseX - this.x;
     const dy = mouseY - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance <= this.size) {
-      const phoneNumber = document.createElement('input');
-      phoneNumber.type = 'text';
-      phoneNumber.value = `Clicked Ball Number: ${this.number}`;
-      phoneNumber.style.position = 'absolute';
-      phoneNumber.style.left = `${event.pageX}px`;
-      phoneNumber.style.top = `${event.pageY}px`;
-      document.body.appendChild(phoneNumber);
+      console.log(`Clicked Ball ${this.number}`);
+      
+      if (!phoneNumberInput) {
+        phoneNumberInput = document.createElement('input');
+        phoneNumberInput.type = 'text';
+        phoneNumberInput.style.position = 'absolute';
+        phoneNumberInput.style.left = `${event.pageX}px`;
+        phoneNumberInput.style.top = `${event.pageY}px`;
+        document.body.appendChild(phoneNumberInput);
+      }
+
+      phoneNumberInput.value += this.number;
     }
   }
 }
