@@ -100,8 +100,8 @@ while (balls.length < 25) {
     
     random(0 + size, width - size),
     random(0 + size, height - size),
-    random(-3, 3),
-    random(-3, 3),
+    random(-1, 1),
+    random(-1, 1),
     random(0, 9),
     size
   );
