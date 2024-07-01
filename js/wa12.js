@@ -7,7 +7,7 @@ newQuote.addEventListener('click', getTrivia);
 const answerBtn = document.querySelector('#js-tweet').addEventListener('click', displayAnswer);
 
 const shareBtn = document.querySelector('#js-share');
-shareBtn.addEventListener('click', shareOnTwitter)
+shareBtn.addEventListener('click', shareOnTwitter);
 
 
 let answerTxt = document.querySelector('#js-answer-text');
@@ -23,8 +23,8 @@ async function getTrivia() {
         }
         const json = await response.json();
         //console.log(json)
-        displayTrivia(json['question']);
-        answer = json['answer'];
+        displayTrivia(json[0].question); // Updated this line to match the correct structure of the JSON response
+        answer = json[0].correctAnswer;
         answerTxt.textContent = '';
     }
     catch(err) {
