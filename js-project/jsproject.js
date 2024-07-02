@@ -28,7 +28,7 @@ class Ball {
     this.velY = velY;
     this.number = number;
     this.size = size;
-    this.isReset - isReset;
+    this.isReset = isReset;
 
     this.onClick = this.onClick.bind(this);
     canvas.addEventListener('click', this.onClick);
@@ -56,7 +56,7 @@ class Ball {
       this.velX = -this.velX;
     }
 
-    if (this.y + this.size >= ballsAreaWidth || this.y - this.size <= 0) {
+    if (this.y + this.size >= ballsAreaHeight || this.y - this.size <= 0) {
       this.velY = -this.velY;
     }
   }
@@ -91,7 +91,7 @@ class Ball {
       }
     }
 
-    if (clickCount < macClicks) {
+    if (clickCount < maxClicks) {
       console.log('Clicked Ball ${this.number}');
   
       
@@ -99,7 +99,9 @@ class Ball {
         phoneNumberInput = document.createElement('input');
         phoneNumberInput.type = 'text';
         phoneNumberInput.style.position = 'absolute';
-        phoneNumberInput.style.width = '200px';
+        phoneNumberInput.style.width = '300px';
+        phoneNumberInput.style.height = '50px';
+        phoneNumberInput.style.fontSize = '30px';
         phoneNumberInput.style.left = `${ballsAreaWidth + 50}px`;
         phoneNumberInput.style.top = `50px`;
         document.body.appendChild(phoneNumberInput);
