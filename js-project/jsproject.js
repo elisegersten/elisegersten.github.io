@@ -137,7 +137,7 @@ class Ball {
 
 const balls = [];
 while (balls.length < 25) {
-  const size = random(10, 20);
+  const size = random(20, 25);
   let velX = random(-2, 2);
   let velY = random(-2, 2);
 
