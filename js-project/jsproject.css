@@ -1,16 +1,18 @@
-html, body {
+body {
     margin: 0;
-    background-color: cadetblue;
+    background-color: lightblue;
+    overflow: hidden;
+    height: inherit;
   }
   
   html {
     font-family:'Times New Roman', Times, serif;
     height: 100%;
   }
-  
-  body {
-    overflow: hidden;
-    height: inherit;
+
+
+  canvas{
+    background-color: lightblue;
   }
   
   h1 {
@@ -21,4 +23,10 @@ html, body {
     right: 5px;
   
     text-shadow: 0 0 4px white;
+  }
+
+  button {
+    font-size: 25px;
+    padding: 10px 10px;
+    cursor: pointer;
   }
