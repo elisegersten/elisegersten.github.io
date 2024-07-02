@@ -13,6 +13,8 @@ const ballsAreaHeight = height;
 let phoneNumberInput = null;
 let submitButton = null;
 
+const fixedSize = 15;
+
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -28,7 +30,7 @@ class Ball {
     this.velX = velX === 0 ? 1 : velX;
     this.velY = velY === 0 ? 1 : velY;
     this.number = number;
-    this.size = size;
+    this.size = fixedSize;
     this.isReset = isReset;
 
     this.onClick = this.onClick.bind(this);
@@ -137,24 +139,16 @@ class Ball {
 
 const balls = [];
 while (balls.length < 25) {
-  const size = random(20, 25);
-  let velX = random(-2, 2);
-  let velY = random(-2, 2);
-
-  if (velX === 0) velX = 1;
-  if (velY === 0) velY = 1;
-
   const ball = new Ball(
-    random(size, ballsAreaWidth - size),
-    random(size, ballsAreaHeight - size),
-    velX,
-    velY,
+    random(fixedSize, ballsAreaWidth - fixedSize), // Adjust as needed
+    random(fixedSize, ballsAreaHeight - fixedSize), // Adjust as needed
+    random(-2, 2),
+    random(-2, 2),
     randomNumber(),
-    size
+    fixedSize
   );
   balls.push(ball);
 }
-
 
 const resetBall = new Ball(
   ballsAreaWidth / 2,
