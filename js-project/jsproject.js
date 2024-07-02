@@ -104,7 +104,7 @@ class Ball {
           phoneNumberInput.style.top = '50px';
           document.body.appendChild(phoneNumberInput);
 
-          // Create submit button
+
           submitButton = document.createElement('button');
           submitButton.textContent = 'Submit';
           submitButton.style.position = 'absolute';
@@ -125,25 +125,22 @@ class Ball {
   }
 
   onSubmit() {
-    // Clear the canvas and stop the loop
     ctx.clearRect(0, 0, width, height);
-    balls.length = 0; // Clear the balls array
+    balls.length = 0; 
 
-    // Remove event listener from canvas
     canvas.removeEventListener('click', this.onClick);
 
     console.log('Phone Number Submitted:', phoneNumberInput.value);
   }
 }
 
-// Create balls and the reset button
+
 const balls = [];
 while (balls.length < 25) {
   const size = random(10, 20);
   let velX = random(-3, 3);
   let velY = random(-3, 3);
 
-  // Ensure no zero velocities
   if (velX === 0) velX = 1;
   if (velY === 0) velY = 1;
 
@@ -158,7 +155,7 @@ while (balls.length < 25) {
   balls.push(ball);
 }
 
-// Add reset button ball
+
 const resetBall = new Ball(
   ballsAreaWidth / 2,
   ballsAreaHeight / 2,
@@ -171,8 +168,7 @@ const resetBall = new Ball(
 balls.push(resetBall);
 
 function loop() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
-  ctx.fillRect(0, 0, width, height);
+  ctx.clearRect(0, 0, width, height);
 
   for (const ball of balls) {
     ball.draw();
