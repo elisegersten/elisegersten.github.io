@@ -11,12 +11,11 @@ const ballsAreaWidth = width * 0.5;
 const ballsAreaHeight = height;
 
 let phoneNumberInput = null;
-
+let submitButton = null;
 
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 
 function randomNumber() {
   return Math.floor(Math.random() * 10);
@@ -26,8 +25,8 @@ class Ball {
   constructor(x, y, velX, velY, number, size, isReset = false) {
     this.x = x;
     this.y = y;
-    this.velX = velX;
-    this.velY = velY;
+    this.velX = velX === 0 ? 1 : velX;
+    this.velY = velY === 0 ? 1 : velY;
     this.number = number;
     this.size = size;
     this.isReset = isReset;
@@ -104,23 +103,47 @@ class Ball {
           phoneNumberInput.style.left = `${ballsAreaWidth + 50}px`;
           phoneNumberInput.style.top = '50px';
           document.body.appendChild(phoneNumberInput);
+
+          // Create submit button
+          submitButton = document.createElement('button');
+          submitButton.textContent = 'Submit';
+          submitButton.style.position = 'absolute';
+          submitButton.style.left = `${ballsAreaWidth + 50}px`;
+          submitButton.style.top = '120px';
+          submitButton.addEventListener('click', this.onSubmit);
+          document.body.appendChild(submitButton);
         }
 
         phoneNumberInput.value += this.number;
         clickCount++;
+
+        if (clickCount === maxClicks) {
+          submitButton.disabled = false;
+        }
       }
     }
   }
+
+  onSubmit() {
+    // Clear the canvas and stop the loop
+    ctx.clearRect(0, 0, width, height);
+    balls.length = 0; // Clear the balls array
+
+    // Remove event listener from canvas
+    canvas.removeEventListener('click', this.onClick);
+
+    console.log('Phone Number Submitted:', phoneNumberInput.value);
+  }
 }
 
-
+// Create balls and the reset button
 const balls = [];
 while (balls.length < 25) {
   const size = random(10, 20);
   let velX = random(-3, 3);
   let velY = random(-3, 3);
 
- 
+  // Ensure no zero velocities
   if (velX === 0) velX = 1;
   if (velY === 0) velY = 1;
 
@@ -135,7 +158,7 @@ while (balls.length < 25) {
   balls.push(ball);
 }
 
-
+// Add reset button ball
 const resetBall = new Ball(
   ballsAreaWidth / 2,
   ballsAreaHeight / 2,
